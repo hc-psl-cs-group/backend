@@ -3,13 +3,6 @@ package config
 import "github.com/TwiN/logr"
 
 func checkConfig(conf *Config) {
-	if (*conf).Datadir == "" {
-		(*conf).Datadir = "./data/"
-	}
-	if (*conf).Datadir[len((*conf).Datadir)-1] != '/' {
-		(*conf).Datadir += "/"
-	}
-
 	if (*conf).Urls.BackendURL == "" {
 		logr.Warn("Backend URL was not configured, falling back to localhost")
 		(*conf).Urls.BackendURL = "http://localhost:8080"

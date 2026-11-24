@@ -15,10 +15,10 @@ import (
 //
 // @Summary 	Store response to a qustionnaire
 // @Description	Creates a new response for to a questionnaire for the current user
-// @Tags		assets
+// @Tags		responses
 // @Produce		json
 // @Param 		payload body model.RecordResponseRequest true "Response to store"
-// @Success		201	{object}		nil
+// @Success		204	{object}		nil
 // @Failure 	400 {object} 		nil
 // @Failure		401	{object}		nil
 // @Failure		500	{object}		httputil.HTTPError

@@ -27,7 +27,7 @@ func Init(prod bool, conf *config.Config) *DBConnector {
 		}
 	}
 
-	db, err := gorm.Open(sqlite.Open("studyphoenix.db"), &gormConf)
+	db, err := gorm.Open(sqlite.Open("db.db"), &gormConf)
 	if err != nil {
 		log.Fatal("[DB] Failed to connect to DB with error", err)
 	}

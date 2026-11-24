@@ -30,23 +30,8 @@ import (
 // @license.url   https://www.gnu.org/licenses/agpl-3.0.en.html
 // @schemes 	  http https
 //
-// @tag.name assets
-// @tag.description Asset CRUD (assets are any type of file the user can upload)
-//
-// @tag.name chats
-// @tag.description Chat CRUD, chat message CRUD
-//
-// @tag.name flashcards
-// @tag.description Flashcard CRUD
-//
-// @tag.name subjects
-// @tag.description Subjects CRUD, association of subtopics and assets
-//
-// @tag.name subtopics
-// @tag.description Subtopics CRUD, association of other subtopics, chats and assets
-//
-// @tag.name user
-// @tag.description User data retrieval and deletion
+// @tag.name responses
+// @tag.description Responses logging
 //
 // @BasePath  /
 func main() {

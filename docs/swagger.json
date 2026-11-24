@@ -1,0 +1,111 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "## Authentication\nTo log in, open [this link](/auth/v2/login) in a new tab. That will log you in automatically.\nIf the frontend is not running, a \"unable to connect\" warning is expected and can be ignored.\n",
+        "title": "StudyPhoenix backend",
+        "termsOfService": "https://janishutz.com/legal/tos/",
+        "contact": {
+            "name": "Support",
+            "url": "https://github.com/studyphoenix/backend#readme",
+            "email": "support@janishutz.com"
+        },
+        "license": {
+            "name": "GNU Affero General Public License 3.0",
+            "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
+        },
+        "version": "0.1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/response/record": {
+            "put": {
+                "description": "Creates a new response for to a questionnaire for the current user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "responses"
+                ],
+                "summary": "Store response to a qustionnaire",
+                "parameters": [
+                    {
+                        "description": "Response to store",
+                        "name": "payload",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.RecordResponseRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/httputil.HTTPError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "httputil.HTTPError": {
+            "type": "object",
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "example": 500
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Error processing data due to db issue"
+                }
+            }
+        },
+        "model.RecordResponseRequest": {
+            "type": "object",
+            "required": [
+                "answers",
+                "questionSetId"
+            ],
+            "properties": {
+                "answers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "questionSetId": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "minLength": 3,
+                    "example": "my-id"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "description": "Responses logging",
+            "name": "responses"
+        }
+    ]
+}

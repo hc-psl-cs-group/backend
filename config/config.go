@@ -15,7 +15,6 @@ type ApplicationUrls struct {
 }
 
 type Config struct {
-	Datadir     string          `json:"dataDir"`
 	Urls        ApplicationUrls `json:"urls"`
 	TestingMode bool
 }

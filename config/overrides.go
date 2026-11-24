@@ -19,10 +19,6 @@ func loadEnvVarSettings(conf *Config) {
 	if ok {
 		(*conf).Urls.DefaultRedirect = defaultRedirect
 	}
-	dataDir, ok := os.LookupEnv("DATA_DIR")
-	if ok {
-		(*conf).Datadir = dataDir
-	}
 
 	testingMode, ok := os.LookupEnv("TEST_MODE")
 	if ok && testingMode == "true" {
