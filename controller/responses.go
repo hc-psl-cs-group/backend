@@ -22,7 +22,7 @@ import (
 // @Failure 	400 {object} 		nil
 // @Failure		401	{object}		nil
 // @Failure		500	{object}		httputil.HTTPError
-// @Router		/response/record [put]
+// @Router		/responses/record [put]
 func (m *Controller) RecordResponse(c *gin.Context) {
 	var req model.RecordResponseRequest
 	err := c.BindJSON(&req)

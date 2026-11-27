@@ -24,7 +24,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/response/record": {
+        "/responses/record": {
             "put": {
                 "description": "Creates a new response for to a questionnaire for the current user",
                 "produces": [

@@ -13,8 +13,8 @@ import (
 
 func (c *Controller) AddRoutes(r *gin.Engine) {
 	// Assets
-	questions := r.Group("/questions", oidclogin.EnsureLogin(false))
-	questions.POST("/upload")
+	responses := r.Group("/responses", oidclogin.EnsureLogin(false))
+	responses.PUT("/record")
 
 	// ── Healthcheck ──────────────────────────────────────────────────
 	r.GET("/healthz", func(c *gin.Context) { c.JSON(200, gin.H{"status": true}) })
