@@ -35,18 +35,20 @@ func Init(prod bool, conf *config.Config) *DBConnector {
 	// FIXME: Only used if using sqlite db
 	db.Exec("PRAGMA foreign_keys = ON")
 
-	// db.AutoMigrate(&User{})
+	db.AutoMigrate(&User{})
+	db.AutoMigrate(&ResponseSet{})
+	db.AutoMigrate(&QuestionAnswer{})
 
 	return &DBConnector{
-		DB: db,
+		DB:     db,
 		Config: conf,
 	}
 }
 
-func dereferenceOrDefault[T any](val *T, defaultValue T) T {
-	if val != nil {
-		return *val
-	} else {
-		return defaultValue
-	}
-}
+// func dereferenceOrDefault[T any](val *T, defaultValue T) T {
+// 	if val != nil {
+// 		return *val
+// 	} else {
+// 		return defaultValue
+// 	}
+// }
